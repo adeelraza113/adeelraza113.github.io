@@ -400,6 +400,145 @@
             border-left-color: #f59e0b;
         }
         
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .project-card {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.08) 0%, rgba(124, 58, 237, 0.08) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #3b82f6 0%, #8b5cf6 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+        
+        .project-card:hover::before {
+            opacity: 1;
+        }
+        
+        .project-card.published {
+            border-color: rgba(34, 211, 238, 0.3);
+        }
+        
+        .project-card.wordpress {
+            border-color: rgba(124, 58, 237, 0.3);
+        }
+        
+        .project-header {
+            margin-bottom: 15px;
+        }
+        
+        .project-status {
+            display: inline-block;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            background: rgba(34, 211, 238, 0.15);
+            color: #22d3ee;
+            border: 1px solid rgba(34, 211, 238, 0.3);
+        }
+        
+        .project-status.in-progress {
+            background: rgba(251, 191, 36, 0.15);
+            color: #fbbf24;
+            border-color: rgba(251, 191, 36, 0.3);
+        }
+        
+        .project-card h3 {
+            color: #60a5fa;
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        .project-desc {
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .tech-badge {
+            background: rgba(59, 130, 246, 0.15);
+            color: #93c5fd;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            font-weight: 500;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(59, 130, 246, 0.5);
+        }
+        
+        .project-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        }
+        
+        .project-link.secondary {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        .project-link.secondary:hover {
+            background: rgba(59, 130, 246, 0.25);
+            color: #93c5fd;
+        }
+        
         /* Footer */
         .footer {
             text-align: center;
@@ -454,6 +593,10 @@
             .skills-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -487,6 +630,119 @@
                 <div class="section-title">Building Scalable Backend Systems</div>
                 <div class="summary">
                     I'm Syed Adeel Raza, a Backend Developer with 3+ years of experience building scalable, secure, and high-performance backend systems. I specialize in Node.js (Express), PHP Laravel, and Python, creating robust RESTful APIs and database-driven solutions for web and mobile applications. I'm passionate about writing clean, maintainable code, improving workflows, and delivering solutions that make a measurable impact.
+                </div>
+            </div>
+            
+            <!-- Projects -->
+            <div class="section">
+                <div class="section-title">Featured Projects</div>
+                
+                <div class="projects-grid">
+                    <div class="project-card published">
+                        <div class="project-header">
+                            <div class="project-status">📱 Live on Play Store</div>
+                            <h3>Ayesha Amir Memorial Hospital (AAMH)</h3>
+                        </div>
+                        <p class="project-desc">Complete backend development and database management for a hospital management mobile application. Handled server deployment, configuration, bug fixes, and ongoing maintenance.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">Express</span>
+                            <span class="tech-badge">MySQL</span>
+                            <span class="tech-badge">RESTful API</span>
+                            <span class="tech-badge">Server Config</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.aamh.pk.hospital" target="_blank" class="project-link">
+                                <span>🔗 View on Play Store</span>
+                            </a>
+                            <a href="https://aamh.com.pk/" target="_blank" class="project-link secondary">
+                                <span>🌐 Visit Website</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card published">
+                        <div class="project-header">
+                            <div class="project-status">📱 Live on Play Store</div>
+                            <h3>Pigeon Gate</h3>
+                        </div>
+                        <p class="project-desc">Developed robust backend infrastructure and managed databases for a specialized mobile application. Responsible for API development, server deployment, testing, and production maintenance.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">PHP Laravel</span>
+                            <span class="tech-badge">PostgreSQL</span>
+                            <span class="tech-badge">REST API</span>
+                            <span class="tech-badge">Testing</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.pigeongate.app" target="_blank" class="project-link">
+                                <span>🔗 View on Play Store</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card published">
+                        <div class="project-header">
+                            <div class="project-status">📱 Live on Play Store</div>
+                            <h3>Ujaala Blood Circle</h3>
+                        </div>
+                        <p class="project-desc">Built complete backend system for a blood donation mobile application. Managed database architecture, API endpoints, server configuration, and ensured smooth deployment and ongoing support.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">MongoDB</span>
+                            <span class="tech-badge">Express</span>
+                            <span class="tech-badge">API Design</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.ujala.bloodcircle" target="_blank" class="project-link">
+                                <span>🔗 View on Play Store</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-status in-progress">🚧 In Development</div>
+                            <h3>Recruitment Agency App</h3>
+                        </div>
+                        <p class="project-desc">Currently developing backend infrastructure for a recruitment management system. Building scalable APIs, database design, and server-side logic for job posting and candidate management features.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">PHP Laravel</span>
+                            <span class="tech-badge">MySQL</span>
+                            <span class="tech-badge">REST API</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-status in-progress">🚧 In Development</div>
+                            <h3>Restaurant Management App</h3>
+                        </div>
+                        <p class="project-desc">Developing comprehensive backend solution for restaurant operations including order management, inventory tracking, and customer data. Focus on performance optimization and real-time updates.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">PostgreSQL</span>
+                            <span class="tech-badge">WebSockets</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card wordpress">
+                        <div class="project-header">
+                            <div class="project-status">🌐 Live Website</div>
+                            <h3>Ayesha Amir Memorial Hospital Website</h3>
+                        </div>
+                        <p class="project-desc">Designed and developed complete WordPress website for hospital services. Handled content management, custom theme development, and ongoing maintenance.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">WordPress</span>
+                            <span class="tech-badge">PHP</span>
+                            <span class="tech-badge">MySQL</span>
+                            <span class="tech-badge">Custom Theme</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://aamh.com.pk/" target="_blank" class="project-link">
+                                <span>🌐 Visit Website</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             
