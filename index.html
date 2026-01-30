@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,22 +11,45 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        .section {
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            background:
+                linear-gradient(rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.92)),
+                url("cover.jpg") center/cover fixed no-repeat;
             color: #e2e8f0;
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
+
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0;
             position: relative;
         }
-        
+
         /* Animated background */
         .bg-animation {
             position: fixed;
@@ -36,7 +60,7 @@
             z-index: 0;
             opacity: 0.1;
         }
-        
+
         .code-line {
             position: absolute;
             color: #3b82f6;
@@ -45,21 +69,53 @@
             white-space: nowrap;
             animation: slideCode 20s linear infinite;
         }
-        
+
         @keyframes slideCode {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100vw); }
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100vw);
+            }
         }
-        
+
         /* Header */
         .header {
             background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
             padding: 60px 40px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
-        
+
+        .header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg,
+                    rgba(59, 130, 246, 0.25),
+                    rgba(124, 58, 237, 0.25),
+                    rgba(34, 211, 238, 0.25));
+            opacity: 0.4;
+            animation: gradientMove 8s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+
         .header-content {
             display: flex;
             align-items: center;
@@ -70,63 +126,89 @@
             position: relative;
             z-index: 1;
         }
-        
+
         .profile-photo {
             flex-shrink: 0;
         }
-        
+
         .profile-photo img {
             width: 180px;
             height: 180px;
             border-radius: 50%;
-            border: 5px solid rgba(255,255,255,0.3);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
             object-fit: cover;
             transition: all 0.3s ease;
         }
-        
+
+        .profile-photo img {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+
         .profile-photo img:hover {
             transform: scale(1.05);
-            border-color: rgba(255,255,255,0.5);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
         }
-        
+
         .header-text {
             text-align: left;
         }
-        
+
         .header::before {
             content: '';
             position: absolute;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
             top: -250px;
             right: -250px;
             animation: pulse 4s ease-in-out infinite;
         }
-        
+
         @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 0.8; }
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
         }
-        
+
         .header-text h1 {
             font-size: 48px;
             font-weight: 700;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
         }
-        
+
         .header-text .title {
             font-size: 20px;
             color: #cbd5e1;
             margin-bottom: 20px;
             line-height: 1.5;
         }
-        
 
-        
+
+
         .contact-links {
             display: flex;
             gap: 15px;
@@ -134,50 +216,50 @@
             margin-top: 25px;
             flex-wrap: wrap;
         }
-        
+
         .contact-links a {
             color: white;
             text-decoration: none;
             padding: 12px 28px;
-            background: rgba(255,255,255,0.15);
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
             border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
             font-weight: 500;
         }
-        
+
         .contact-links a:hover {
-            background: rgba(255,255,255,0.25);
+            background: rgba(255, 255, 255, 0.25);
             transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         }
-        
+
         /* Main content */
         .main-content {
             position: relative;
             z-index: 1;
             padding: 40px;
         }
-        
+
         /* Section styling */
         .section {
             background: rgba(30, 41, 59, 0.8);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
             padding: 35px;
             margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
         }
-        
+
         .section:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 48px rgba(0,0,0,0.4);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
             border-color: rgba(59, 130, 246, 0.3);
         }
-        
+
         .section-title {
             font-size: 28px;
             color: #60a5fa;
@@ -187,16 +269,16 @@
             gap: 12px;
             font-weight: 600;
         }
-        
 
-        
+
+
         /* Summary */
         .summary {
             font-size: 17px;
             line-height: 1.8;
             color: #cbd5e1;
         }
-        
+
         /* Skills grid */
         .skills-grid {
             display: grid;
@@ -204,7 +286,7 @@
             gap: 20px;
             margin-top: 20px;
         }
-        
+
         .skill-category {
             background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(124, 58, 237, 0.1) 100%);
             padding: 20px;
@@ -212,25 +294,25 @@
             border: 1px solid rgba(59, 130, 246, 0.2);
             transition: all 0.3s ease;
         }
-        
+
         .skill-category:hover {
             border-color: rgba(59, 130, 246, 0.5);
             transform: scale(1.03);
         }
-        
+
         .skill-category h3 {
             color: #22d3ee;
             font-size: 18px;
             margin-bottom: 12px;
             font-weight: 600;
         }
-        
+
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
         }
-        
+
         .skill-tag {
             background: rgba(59, 130, 246, 0.2);
             color: #93c5fd;
@@ -240,12 +322,12 @@
             border: 1px solid rgba(59, 130, 246, 0.3);
             transition: all 0.2s ease;
         }
-        
+
         .skill-tag:hover {
             background: rgba(59, 130, 246, 0.3);
             transform: scale(1.05);
         }
-        
+
         /* Experience */
         .experience-item {
             margin-bottom: 30px;
@@ -255,12 +337,12 @@
             border-left: 4px solid #3b82f6;
             transition: all 0.3s ease;
         }
-        
+
         .experience-item:hover {
             border-left-color: #22d3ee;
             transform: translateX(5px);
         }
-        
+
         .experience-header {
             display: flex;
             justify-content: space-between;
@@ -269,19 +351,19 @@
             flex-wrap: wrap;
             gap: 10px;
         }
-        
+
         .company {
             font-size: 22px;
             color: #60a5fa;
             font-weight: 600;
         }
-        
+
         .role {
             font-size: 18px;
             color: #22d3ee;
             margin-bottom: 5px;
         }
-        
+
         .duration {
             color: #94a3b8;
             font-size: 14px;
@@ -289,30 +371,30 @@
             padding: 4px 12px;
             border-radius: 6px;
         }
-        
+
         .location {
             color: #94a3b8;
             font-size: 14px;
             margin-bottom: 12px;
         }
-        
+
         .experience-desc {
             color: #cbd5e1;
             line-height: 1.7;
         }
-        
+
         .experience-points {
             list-style: none;
             margin-top: 12px;
         }
-        
+
         .experience-points li {
             padding-left: 25px;
             position: relative;
             margin-bottom: 8px;
             color: #cbd5e1;
         }
-        
+
         .experience-points li::before {
             content: '▹';
             position: absolute;
@@ -320,7 +402,7 @@
             color: #22d3ee;
             font-size: 20px;
         }
-        
+
         /* Education */
         .education-item {
             display: flex;
@@ -332,37 +414,37 @@
             border: 1px solid rgba(59, 130, 246, 0.15);
             transition: all 0.3s ease;
         }
-        
+
         .education-item:hover {
             background: rgba(59, 130, 246, 0.1);
             transform: translateX(5px);
         }
-        
+
         .edu-number {
             font-size: 32px;
             color: #3b82f6;
             font-weight: 700;
             min-width: 50px;
         }
-        
+
         .edu-details h3 {
             color: #60a5fa;
             font-size: 18px;
             margin-bottom: 5px;
         }
-        
+
         .edu-details p {
             color: #94a3b8;
             font-size: 14px;
         }
-        
+
         /* Certifications */
         .cert-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
         }
-        
+
         .cert-item {
             background: linear-gradient(135deg, rgba(34, 211, 238, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
             padding: 18px;
@@ -373,18 +455,18 @@
             font-weight: 500;
             transition: all 0.3s ease;
         }
-        
+
         .cert-item:hover {
             transform: scale(1.05);
             border-color: rgba(34, 211, 238, 0.5);
         }
-        
+
         /* Awards */
         .awards-list {
             display: grid;
             gap: 15px;
         }
-        
+
         .award-item {
             background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(245, 158, 11, 0.1) 100%);
             padding: 20px;
@@ -394,12 +476,12 @@
             font-weight: 500;
             transition: all 0.3s ease;
         }
-        
+
         .award-item:hover {
             transform: translateX(5px);
             border-left-color: #f59e0b;
         }
-        
+
         /* Projects */
         .projects-grid {
             display: grid;
@@ -407,7 +489,7 @@
             gap: 25px;
             margin-top: 20px;
         }
-        
+
         .project-card {
             background: linear-gradient(135deg, rgba(30, 64, 175, 0.08) 0%, rgba(124, 58, 237, 0.08) 100%);
             border: 1px solid rgba(59, 130, 246, 0.2);
@@ -417,7 +499,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .project-card::before {
             content: '';
             position: absolute;
@@ -429,29 +511,30 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-        
+
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
-            border-color: rgba(59, 130, 246, 0.4);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.25);
+            border-color: rgba(59, 130, 246, 0.6);
         }
-        
+
+
         .project-card:hover::before {
             opacity: 1;
         }
-        
+
         .project-card.published {
             border-color: rgba(34, 211, 238, 0.3);
         }
-        
+
         .project-card.wordpress {
             border-color: rgba(124, 58, 237, 0.3);
         }
-        
+
         .project-header {
             margin-bottom: 15px;
         }
-        
+
         .project-status {
             display: inline-block;
             font-size: 12px;
@@ -463,34 +546,34 @@
             color: #22d3ee;
             border: 1px solid rgba(34, 211, 238, 0.3);
         }
-        
+
         .project-status.in-progress {
             background: rgba(251, 191, 36, 0.15);
             color: #fbbf24;
             border-color: rgba(251, 191, 36, 0.3);
         }
-        
+
         .project-card h3 {
             color: #60a5fa;
             font-size: 20px;
             margin-bottom: 12px;
             font-weight: 600;
         }
-        
+
         .project-desc {
             color: #cbd5e1;
             line-height: 1.7;
             margin-bottom: 15px;
             font-size: 14px;
         }
-        
+
         .project-tech {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             margin-bottom: 15px;
         }
-        
+
         .tech-badge {
             background: rgba(59, 130, 246, 0.15);
             color: #93c5fd;
@@ -500,13 +583,13 @@
             border: 1px solid rgba(59, 130, 246, 0.25);
             font-weight: 500;
         }
-        
+
         .project-links {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
-        
+
         .project-link {
             display: inline-flex;
             align-items: center;
@@ -521,24 +604,24 @@
             transition: all 0.3s ease;
             border: 1px solid rgba(59, 130, 246, 0.5);
         }
-        
+
         .project-link:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
             background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
         }
-        
+
         .project-link.secondary {
             background: rgba(59, 130, 246, 0.15);
             color: #60a5fa;
             border-color: rgba(59, 130, 246, 0.3);
         }
-        
+
         .project-link.secondary:hover {
             background: rgba(59, 130, 246, 0.25);
             color: #93c5fd;
         }
-        
+
         /* Footer */
         .footer {
             text-align: center;
@@ -546,63 +629,64 @@
             color: #94a3b8;
             font-size: 14px;
         }
-        
+
         .footer-quote {
             font-style: italic;
             color: #60a5fa;
             margin-bottom: 10px;
             font-size: 16px;
         }
-        
+
         /* Responsive */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
                 text-align: center;
             }
-            
+
             .header-text {
                 text-align: center;
             }
-            
+
             .header-text h1 {
                 font-size: 36px;
             }
-            
+
             .profile-photo img {
                 width: 150px;
                 height: 150px;
             }
-            
+
             .contact-links {
                 justify-content: center;
             }
-            
+
             .main-content {
                 padding: 20px;
             }
-            
+
             .section {
                 padding: 25px;
             }
-            
+
             .experience-header {
                 flex-direction: column;
             }
-            
+
             .skills-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .projects-grid {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="bg-animation" id="bgAnimation"></div>
-    
+
     <div class="container">
         <!-- Header -->
         <div class="header">
@@ -612,7 +696,8 @@
                 </div>
                 <div class="header-text">
                     <h1>Syed Adeel Raza</h1>
-                    <div class="title">Full-Stack Developer | Node.js (Express) & PHP Laravel | Python (Adv. Learner)</div>
+                    <div class="title">Full-Stack Developer | Node.js (Express) & PHP Laravel | Python (Adv. Learner)
+                    </div>
                     <div class="contact-links">
                         <a href="https://www.linkedin.com/in/syed-adeel-raza" target="_blank">🔗 LinkedIn</a>
                         <a href="mailto:adeelraza113@gmail.com">✉️ Email</a>
@@ -621,29 +706,35 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Main Content -->
         <div class="main-content">
-            
+
             <!-- Summary -->
             <div class="section">
                 <div class="section-title">Building Scalable Backend Systems</div>
                 <div class="summary">
-                    I'm Syed Adeel Raza, a Backend Developer with 3+ years of experience building scalable, secure, and high-performance backend systems. I specialize in Node.js (Express), PHP Laravel, and Python, creating robust RESTful APIs and database-driven solutions for web and mobile applications. I'm passionate about writing clean, maintainable code, improving workflows, and delivering solutions that make a measurable impact.
+                    I'm Syed Adeel Raza, a Backend Developer with 3+ years of experience building scalable, secure, and
+                    high-performance backend systems. I specialize in Node.js (Express), PHP Laravel, and Python,
+                    creating robust RESTful APIs and database-driven solutions for web and mobile applications. I'm
+                    passionate about writing clean, maintainable code, improving workflows, and delivering solutions
+                    that make a measurable impact.
                 </div>
             </div>
-            
+
             <!-- Projects -->
             <div class="section">
                 <div class="section-title">Featured Projects</div>
-                
+
                 <div class="projects-grid">
                     <div class="project-card published">
                         <div class="project-header">
                             <div class="project-status">📱 Live on Play Store</div>
                             <h3>Ayesha Amir Memorial Hospital (AAMH)</h3>
                         </div>
-                        <p class="project-desc">Complete backend development and database management for a hospital management mobile application. Handled server deployment, configuration, bug fixes, and ongoing maintenance.</p>
+                        <p class="project-desc">Complete backend development and database management for a hospital
+                            management mobile application. Handled server deployment, configuration, bug fixes, and
+                            ongoing maintenance.</p>
                         <div class="project-tech">
                             <span class="tech-badge">Node.js</span>
                             <span class="tech-badge">Express</span>
@@ -652,7 +743,8 @@
                             <span class="tech-badge">Server Config</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.aamh.pk.hospital" target="_blank" class="project-link">
+                            <a href="https://play.google.com/store/apps/details?id=com.aamh.pk.hospital" target="_blank"
+                                class="project-link">
                                 <span>🔗 View on Play Store</span>
                             </a>
                             <a href="https://aamh.com.pk/" target="_blank" class="project-link secondary">
@@ -660,13 +752,15 @@
                             </a>
                         </div>
                     </div>
-                    
+
                     <div class="project-card published">
                         <div class="project-header">
                             <div class="project-status">📱 Live on Play Store</div>
                             <h3>Pigeon Gate</h3>
                         </div>
-                        <p class="project-desc">Developed robust backend infrastructure and managed databases for a specialized mobile application. Responsible for API development, server deployment, testing, and production maintenance.</p>
+                        <p class="project-desc">Developed robust backend infrastructure and managed databases for a
+                            specialized mobile application. Responsible for API development, server deployment, testing,
+                            and production maintenance.</p>
                         <div class="project-tech">
                             <span class="tech-badge">PHP Laravel</span>
                             <span class="tech-badge">PostgreSQL</span>
@@ -674,18 +768,21 @@
                             <span class="tech-badge">Testing</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.pigeongate.app" target="_blank" class="project-link">
+                            <a href="https://play.google.com/store/apps/details?id=com.pigeongate.app" target="_blank"
+                                class="project-link">
                                 <span>🔗 View on Play Store</span>
                             </a>
                         </div>
                     </div>
-                    
+
                     <div class="project-card published">
                         <div class="project-header">
                             <div class="project-status">📱 Live on Play Store</div>
                             <h3>Ujaala Blood Circle</h3>
                         </div>
-                        <p class="project-desc">Built complete backend system for a blood donation mobile application. Managed database architecture, API endpoints, server configuration, and ensured smooth deployment and ongoing support.</p>
+                        <p class="project-desc">Built complete backend system for a blood donation mobile application.
+                            Managed database architecture, API endpoints, server configuration, and ensured smooth
+                            deployment and ongoing support.</p>
                         <div class="project-tech">
                             <span class="tech-badge">Node.js</span>
                             <span class="tech-badge">MongoDB</span>
@@ -693,44 +790,89 @@
                             <span class="tech-badge">API Design</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.ujala.bloodcircle" target="_blank" class="project-link">
+                            <a href="https://play.google.com/store/apps/details?id=com.ujala.bloodcircle"
+                                target="_blank" class="project-link">
                                 <span>🔗 View on Play Store</span>
                             </a>
                         </div>
                     </div>
-                    
+
+                    <div class="project-card published">
+                        <div class="project-header">
+                            <div class="project-status">🚀 Almost Completed</div>
+                            <h3>Tele Health Application</h3>
+                        </div>
+                        <p class="project-desc">
+                            A real-time telehealth platform enabling patient–doctor chat, audio calls, and video calls.
+                            Implemented WebSocket-based messaging and Agora-powered audio/video communication.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">Express</span>
+                            <span class="tech-badge">WebSockets</span>
+                            <span class="tech-badge">Agora SDK</span>
+                            <span class="tech-badge">Real-time Chat</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card published">
+                        <div class="project-header">
+                            <div class="project-status">🛒 Backend Completed</div>
+                            <h3>Mart / Grocery App</h3>
+                        </div>
+                        <p class="project-desc">
+                            Complete backend system for a mart application including product management,
+                            orders, users, authentication, and server deployment.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">Express</span>
+                            <span class="tech-badge">MySQL / MongoDB</span>
+                            <span class="tech-badge">REST APIs</span>
+                            <span class="tech-badge">Git & GitHub</span>
+                            <span class="tech-badge">Server Deployment</span>
+                        </div>
+                    </div>
+
+
                     <div class="project-card">
                         <div class="project-header">
                             <div class="project-status in-progress">🚧 In Development</div>
                             <h3>Recruitment Agency App</h3>
                         </div>
-                        <p class="project-desc">Currently developing backend infrastructure for a recruitment management system. Building scalable APIs, database design, and server-side logic for job posting and candidate management features.</p>
+                        <p class="project-desc">Currently developing backend infrastructure for a recruitment management
+                            system. Building scalable APIs, database design, and server-side logic for job posting and
+                            candidate management features.</p>
                         <div class="project-tech">
                             <span class="tech-badge">PHP Laravel</span>
                             <span class="tech-badge">MySQL</span>
                             <span class="tech-badge">REST API</span>
                         </div>
                     </div>
-                    
+
                     <div class="project-card">
                         <div class="project-header">
                             <div class="project-status in-progress">🚧 In Development</div>
                             <h3>Restaurant Management App</h3>
                         </div>
-                        <p class="project-desc">Developing comprehensive backend solution for restaurant operations including order management, inventory tracking, and customer data. Focus on performance optimization and real-time updates.</p>
+                        <p class="project-desc">Developing comprehensive backend solution for restaurant operations
+                            including order management, inventory tracking, and customer data. Focus on performance
+                            optimization and real-time updates.</p>
                         <div class="project-tech">
                             <span class="tech-badge">Node.js</span>
                             <span class="tech-badge">PostgreSQL</span>
                             <span class="tech-badge">WebSockets</span>
                         </div>
                     </div>
-                    
+
+
                     <div class="project-card wordpress">
                         <div class="project-header">
                             <div class="project-status">🌐 Live Website</div>
                             <h3>Ayesha Amir Memorial Hospital Website</h3>
                         </div>
-                        <p class="project-desc">Designed and developed complete WordPress website for hospital services. Handled content management, custom theme development, and ongoing maintenance.</p>
+                        <p class="project-desc">Designed and developed complete WordPress website for hospital services.
+                            Handled content management, custom theme development, and ongoing maintenance.</p>
                         <div class="project-tech">
                             <span class="tech-badge">WordPress</span>
                             <span class="tech-badge">PHP</span>
@@ -745,7 +887,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Skills -->
             <div class="section">
                 <div class="section-title">Tech Stack & Expertise</div>
@@ -759,7 +901,7 @@
                             <span class="skill-tag">Python</span>
                         </div>
                     </div>
-                    
+
                     <div class="skill-category">
                         <h3>Databases</h3>
                         <div class="skill-tags">
@@ -768,7 +910,7 @@
                             <span class="skill-tag">MongoDB</span>
                         </div>
                     </div>
-                    
+
                     <div class="skill-category">
                         <h3>Frontend Technologies</h3>
                         <div class="skill-tags">
@@ -780,7 +922,7 @@
                             <span class="skill-tag">JavaScript</span>
                         </div>
                     </div>
-                    
+
                     <div class="skill-category">
                         <h3>API & Architecture</h3>
                         <div class="skill-tags">
@@ -789,7 +931,7 @@
                             <span class="skill-tag">API Integration</span>
                         </div>
                     </div>
-                    
+
                     <div class="skill-category">
                         <h3>DevOps & Tools</h3>
                         <div class="skill-tags">
@@ -801,11 +943,11 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Experience -->
             <div class="section">
                 <div class="section-title">Professional Experience</div>
-                
+
                 <div class="experience-item">
                     <div class="experience-header">
                         <div>
@@ -816,7 +958,9 @@
                         <div class="duration">Aug 2024 - Present (1 year 5 months)</div>
                     </div>
                     <div class="experience-desc">
-                        Building scalable and reliable backend systems using Node.js (Express), PHP Laravel, and Python. Focused on developing clean server-side logic, optimizing database performance, and integrating APIs.
+                        Building scalable and reliable backend systems using Node.js (Express), PHP Laravel, and Python.
+                        Focused on developing clean server-side logic, optimizing database performance, and integrating
+                        APIs.
                     </div>
                     <ul class="experience-points">
                         <li>Collaborate with cross-functional teams to deliver user-focused features</li>
@@ -825,7 +969,7 @@
                         <li>Design and maintain RESTful APIs for web and mobile applications</li>
                     </ul>
                 </div>
-                
+
                 <div class="experience-item">
                     <div class="experience-header">
                         <div>
@@ -836,7 +980,9 @@
                         <div class="duration">Jul 2019 - Jul 2024 (5 years 1 month)</div>
                     </div>
                     <div class="experience-desc">
-                        Built custom backend solutions for web and mobile applications for clients worldwide. Specialized in designing, developing, and integrating RESTful APIs, optimizing database performance, and ensuring projects are scalable and secure.
+                        Built custom backend solutions for web and mobile applications for clients worldwide.
+                        Specialized in designing, developing, and integrating RESTful APIs, optimizing database
+                        performance, and ensuring projects are scalable and secure.
                     </div>
                     <ul class="experience-points">
                         <li>Delivered 50+ successful projects with 5-star ratings</li>
@@ -845,7 +991,7 @@
                         <li>Built custom CMS solutions and API integrations</li>
                     </ul>
                 </div>
-                
+
                 <div class="experience-item">
                     <div class="experience-header">
                         <div>
@@ -858,16 +1004,17 @@
                     <ul class="experience-points">
                         <li>Assisted in backend development with PHP Laravel and Node.js (Express)</li>
                         <li>Helped design and integrate APIs to connect backend services with frontend applications</li>
-                        <li>Contributed to responsive web development using HTML5, CSS3, JavaScript, and Tailwind CSS</li>
+                        <li>Contributed to responsive web development using HTML5, CSS3, JavaScript, and Tailwind CSS
+                        </li>
                         <li>Troubleshooted issues and optimized database queries (MySQL and MongoDB)</li>
                     </ul>
                 </div>
             </div>
-            
+
             <!-- Education -->
             <div class="section">
                 <div class="section-title">Education</div>
-                
+
                 <div class="education-item">
                     <div class="edu-number">01</div>
                     <div class="edu-details">
@@ -876,7 +1023,7 @@
                         <p>2018 - 2022</p>
                     </div>
                 </div>
-                
+
                 <div class="education-item">
                     <div class="edu-number">02</div>
                     <div class="edu-details">
@@ -885,7 +1032,7 @@
                         <p>2016 - 2018</p>
                     </div>
                 </div>
-                
+
                 <div class="education-item">
                     <div class="edu-number">03</div>
                     <div class="edu-details">
@@ -895,7 +1042,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Certifications -->
             <div class="section">
                 <div class="section-title">Certifications</div>
@@ -907,26 +1054,28 @@
                     <div class="cert-item">✓ JavaScript</div>
                 </div>
             </div>
-            
+
             <!-- Awards -->
             <div class="section">
                 <div class="section-title">Honors & Awards</div>
                 <div class="awards-list">
                     <div class="award-item">🏆 HEC Scholarship - Recognized for academic excellence and potential</div>
                     <div class="award-item">🏆 PEEF Scholarship - Awarded for outstanding performance and merit</div>
-                    <div class="award-item">🏆 PEEF Scholarship - Further recognition for continued academic achievement</div>
+                    <div class="award-item">🏆 PEEF Scholarship - Further recognition for continued academic achievement
+                    </div>
                 </div>
             </div>
-            
+
         </div>
-        
+
         <!-- Footer -->
         <div class="footer">
-            <div class="footer-quote">"I enjoy collaborating with teams, mentoring juniors, and continuously learning new technologies."</div>
+            <div class="footer-quote">"I enjoy collaborating with teams, mentoring juniors, and continuously learning
+                new technologies."</div>
             <p>© 2026 Syed Adeel Raza | Backend Developer</p>
         </div>
     </div>
-    
+
     <script>
         // Animated background code lines
         const bgAnimation = document.getElementById('bgAnimation');
@@ -944,7 +1093,7 @@
             'const PORT = process.env.PORT || 3000;',
             'CREATE TABLE users (id INT PRIMARY KEY);'
         ];
-        
+
         function createCodeLine() {
             const line = document.createElement('div');
             line.className = 'code-line';
@@ -953,17 +1102,18 @@
             line.style.animationDuration = (15 + Math.random() * 10) + 's';
             line.style.opacity = 0.3 + Math.random() * 0.3;
             bgAnimation.appendChild(line);
-            
+
             setTimeout(() => line.remove(), 25000);
         }
-        
+
         // Create initial code lines
         for (let i = 0; i < 8; i++) {
             setTimeout(createCodeLine, i * 2000);
         }
-        
+
         // Continue creating code lines
         setInterval(createCodeLine, 3000);
     </script>
 </body>
+
 </html>
