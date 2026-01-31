@@ -79,17 +79,22 @@
 
         /* Header */
         .header {
-            background-position: center 15%;
-            background:
-                linear-gradient(135deg,
-                    rgba(79, 70, 229, 0.65),
-                    rgba(124, 58, 237, 0.65)),
-                url("cover.jpg") center 25% / 95% auto no-repeat;
-            padding: 80px 40px;
+            background: linear-gradient(135deg,
+                    #4f46e5,
+                    #7c3aed);
+            padding: 90px 40px;
             position: relative;
             overflow: hidden;
         }
 
+        .header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url("cover.jpg") center center / contain no-repeat;
+            opacity: 0.35;
+            z-index: 0;
+        }
 
 
         .header::after {
@@ -175,16 +180,6 @@
             text-align: left;
         }
 
-        .header::before {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            top: -250px;
-            right: -250px;
-            animation: pulse 4s ease-in-out infinite;
-        }
 
         @keyframes pulse {
 
@@ -733,12 +728,12 @@
         }
 
         @media (max-width: 768px) {
+            .header::before {
+                background-size: cover;
+                opacity: 0.25;
+            }
+
             .header {
-                background:
-                    linear-gradient(135deg,
-                        rgba(79, 70, 229, 0.75),
-                        rgba(124, 58, 237, 0.75)),
-                    url("cover.jpg") center top / cover no-repeat;
                 padding: 70px 20px;
             }
         }
@@ -1217,4 +1212,3 @@
 </body>
 
 </html>
-
