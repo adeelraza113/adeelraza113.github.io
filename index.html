@@ -82,6 +82,7 @@
             background: linear-gradient(135deg,
                     #4f46e5,
                     #7c3aed);
+            min-height: 420px;
             padding: 90px 40px;
             position: relative;
             overflow: hidden;
@@ -91,10 +92,11 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: url("cover.jpg") center center / contain no-repeat;
+            background: url("cover.jpg") center center / cover no-repeat;
             opacity: 0.35;
             z-index: 0;
         }
+
 
 
         .header::after {
@@ -728,13 +730,14 @@
         }
 
         @media (max-width: 768px) {
-            .header::before {
-                background-size: cover;
-                opacity: 0.25;
+            .header {
+                min-height: 520px;
+                padding: 70px 20px;
             }
 
-            .header {
-                padding: 70px 20px;
+            .header::before {
+                background-position: center top;
+                opacity: 0.25;
             }
         }
     </style>
