@@ -16,9 +16,6 @@
             scroll-behavior: smooth;
         }
 
-        .section {
-            animation: fadeUp 0.8s ease forwards;
-        }
 
         @keyframes fadeUp {
             from {
@@ -84,7 +81,7 @@
         .header {
             background:
                 linear-gradient(135deg, rgba(79, 70, 229, 0.95), rgba(124, 58, 237, 0.95)),
-                url("assets/cover.jpg") center / cover no-repeat;
+                url("cover.jpg") center / cover no-repeat;
             padding: 60px 40px;
             position: relative;
             overflow: hidden;
@@ -255,6 +252,18 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
         }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
 
         .section:hover {
             transform: translateY(-5px);
@@ -440,29 +449,6 @@
             font-size: 14px;
         }
 
-        /* Certifications */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .cert-item {
-            background: linear-gradient(135deg, rgba(34, 211, 238, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
-            padding: 18px;
-            border-radius: 10px;
-            border: 1px solid rgba(34, 211, 238, 0.2);
-            text-align: center;
-            color: #22d3ee;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .cert-item:hover {
-            transform: scale(1.05);
-            border-color: rgba(34, 211, 238, 0.5);
-        }
-
         /* Awards */
         .awards-list {
             display: grid;
@@ -639,6 +625,53 @@
             font-size: 16px;
         }
 
+        /* Certification Images */
+        .cert-image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-img {
+            width: 100%;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .cert-img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.35);
+        }
+
+        /* Modal */
+        .cert-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cert-modal-img {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 12px;
+        }
+
+        .cert-modal .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
+
+
         /* Responsive */
         @media (max-width: 768px) {
             .header-content {
@@ -681,6 +714,13 @@
 
             .projects-grid {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
             }
         }
     </style>
@@ -1048,14 +1088,21 @@
             <!-- Certifications -->
             <div class="section">
                 <div class="section-title">Certifications</div>
-                <div class="cert-grid">
-                    <div class="cert-item">✓ ReactJS</div>
-                    <div class="cert-item">✓ Git Version Control</div>
-                    <div class="cert-item">✓ PHP Laravel</div>
-                    <div class="cert-item">✓ NodeJS</div>
-                    <div class="cert-item">✓ JavaScript</div>
+
+                <div class="cert-image-grid">
+                    <img src="react.jpg" alt="React Certificate" loading="lazy" class="cert-img">
+                    <img src="node.jpg" alt="Node Certificate" loading="lazy" class="cert-img">
+                    <img src="laravel.jpg" alt="Laravel Certificate" loading="lazy" class="cert-img">
+                    <img src="softskills.jpg" alt="Soft Skills Certificate" loading="lazy" class="cert-img">
                 </div>
             </div>
+
+            <!-- Certificate Modal (PASTE JUST AFTER Certifications SECTION) -->
+            <div id="certModal" class="cert-modal">
+                <span class="close">&times;</span>
+                <img class="cert-modal-img" id="certModalImg">
+            </div>
+
 
             <!-- Awards -->
             <div class="section">
@@ -1116,7 +1163,38 @@
         // Continue creating code lines
         setInterval(createCodeLine, 3000);
     </script>
+    <script>
+        /* Scroll Reveal */
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll(".section").forEach(section => {
+            section.classList.add("reveal");
+            observer.observe(section);
+        });
+
+        /* Certification Modal */
+        const modal = document.getElementById("certModal");
+        const modalImg = document.getElementById("certModalImg");
+        const certImgs = document.querySelectorAll(".cert-img");
+        const closeBtn = document.querySelector(".cert-modal .close");
+
+        certImgs.forEach(img => {
+            img.addEventListener("click", () => {
+                modal.style.display = "flex";
+                modalImg.src = img.src;
+            });
+        });
+
+        closeBtn.onclick = () => modal.style.display = "none";
+        modal.onclick = e => e.target === modal && (modal.style.display = "none");
+    </script>
+
 </body>
 
 </html>
-
