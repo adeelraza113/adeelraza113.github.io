@@ -79,12 +79,12 @@
 
         /* Header */
         .header {
-             background-position: center 15%;
+            background-position: center 15%;
             background:
                 linear-gradient(135deg,
                     rgba(79, 70, 229, 0.65),
                     rgba(124, 58, 237, 0.65)),
-                url("cover.jpg") center 25% / cover no-repeat;
+                url("cover.jpg") center 25% / 85% auto no-repeat;
             padding: 80px 40px;
             position: relative;
             overflow: hidden;
@@ -729,6 +729,17 @@
             * {
                 animation: none !important;
                 transition: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                background:
+                    linear-gradient(135deg,
+                        rgba(79, 70, 229, 0.75),
+                        rgba(124, 58, 237, 0.75)),
+                    url("cover.jpg") center top / cover no-repeat;
+                padding: 70px 20px;
             }
         }
     </style>
