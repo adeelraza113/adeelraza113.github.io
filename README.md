@@ -16,7 +16,7 @@
 
 - ⚡ **Fun fact is that I am full-stack, but my happiest place is designing APIs and database schemas.**
 
-- 👨‍💻 All of my projects are available at **[https://adeelraza113.github.io/](https://adeelraza113.github.io/)**
+- 👨‍💻 **All of my projects are available at [https://adeelraza113.github.io/](https://adeelraza113.github.io/)**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
