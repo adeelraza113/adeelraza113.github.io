@@ -2,19 +2,19 @@
 
 ### Full Stack Developer
 
-- 🔭 I'm currently working on **a TeleHealth project**
+- 🔭 **I'm currently working on a TeleHealth project**
 
-- 🌱 I'm currently learning **Python(Advance)**
+- 🌱 **I'm currently learning Python(Advance)**
 
-- 👯 I'm looking to collaborate on **Full-Stack Developer (backend-focused) working with React, Node.js, Laravel, and Python. Experienced in API design, authentication, and database architecture. Open to collaboration.**
+- 👯 **I'm looking to collaborate on Full-Stack Developer (backend-focused) working with React, Node.js, Laravel, and Python. Experienced in API design, authentication, and database architecture. Open to collaboration.**
 
-- 🤝 I'm looking for help with **I’m looking for help with a learning-focused full-stack project to practice real-world workflows like API integration, authentication, and clean architecture.**
+- 🤝 **I'm looking for help with a learning-focused full-stack project to practice real-world workflows like API integration, authentication, and clean architecture.**
 
-- 💬 Ask me about **APIs, auth flows, database schemas, and how backend decisions affect frontend performance.**
+- 💬 **Ask me about APIs, auth flows, database schemas, and how backend decisions affect frontend performance.**
 
-- 📫 How to reach me **adeelraza113@gmail.com**
+- 📫 **How to reach me adeelraza113@gmail.com**
 
-- ⚡ Fun fact **I am full-stack, but my happiest place is designing APIs and database schemas.**
+- ⚡ **Fun fact is that I am full-stack, but my happiest place is designing APIs and database schemas.**
 
 - 👨‍💻 All of my projects are available at **[https://adeelraza113.github.io/](https://adeelraza113.github.io/)**
 
