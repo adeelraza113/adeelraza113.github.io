@@ -2,10 +2,6 @@
 
 ### Full Stack Developer
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=https://github.com/adeelraza113&label=Profile views&color=0e75b6&style=flat" alt="https://github.com/adeelraza113" /> </p>
-
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=https://github.com/adeelraza113" alt="https://github.com/adeelraza113" /></a> </p>
-
 - 🔭 I'm currently working on **a TeleHealth project**
 
 - 🌱 I'm currently learning **Python(Advance)**
