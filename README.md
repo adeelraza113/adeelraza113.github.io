@@ -30,7 +30,5 @@
 
 <p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=https://github.com/adeelraza113&show_icons=true&locale=en&layout=compact" alt="https://github.com/adeelraza113" /></p>
 
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=https://github.com/adeelraza113&show_icons=true&locale=en" alt="https://github.com/adeelraza113" /></p>
 
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=https://github.com/adeelraza113&" alt="https://github.com/adeelraza113" /></p>
 
