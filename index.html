@@ -82,19 +82,9 @@
             background: linear-gradient(135deg,
                     #4f46e5,
                     #7c3aed);
-            min-height: 420px;
             padding: 90px 40px;
             position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: url("cover.jpg") center center / cover no-repeat;
-            opacity: 0.35;
-            z-index: 0;
+            box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.3);
         }
 
 
@@ -134,11 +124,15 @@
             margin: 0 auto;
             position: relative;
             z-index: 1;
-            background: rgba(15, 23, 42, 0.55);
-            backdrop-filter: blur(6px);
+            background: rgba(30, 41, 59, 0.75);
+            backdrop-filter: blur(8px);
             padding: 30px 40px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);
+            transition: 0.3s ease;
             border-radius: 18px;
         }
+
 
 
         .profile-photo {
@@ -735,10 +729,15 @@
                 padding: 70px 20px;
             }
 
-            .header::before {
-                background-position: center top;
-                opacity: 0.25;
+            @media (max-width: 768px) {
+                .header-content {
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 20px;
+                    padding: 25px 20px;
+                }
             }
+
         }
     </style>
 </head>
