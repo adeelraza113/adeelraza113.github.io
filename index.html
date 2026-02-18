@@ -746,26 +746,26 @@
                 margin: auto;
             }
 
-            /* Title Glow */
-            .section-title {
+            /* Title */
+            .deployment-title {
                 text-align: center;
                 font-size: 2.6rem;
                 font-weight: 800;
                 margin-bottom: 70px;
-                background: linear-gradient(90deg, #60a5fa, #a78bfa, #22d3ee);
+                background: linear-gradient(90deg, #60a5fa, #a78bfa);
                 background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
-                animation: titleGlow 3s ease-in-out infinite alternate;
+                animation: glow 3s infinite alternate;
             }
 
-            @keyframes titleGlow {
+            @keyframes glow {
                 from {
-                    text-shadow: 0 0 10px rgba(96, 165, 250, 0.4);
+                    text-shadow: 0 0 10px rgba(96, 165, 250, .3);
                 }
 
                 to {
-                    text-shadow: 0 0 25px rgba(167, 139, 250, 0.9);
+                    text-shadow: 0 0 30px rgba(167, 139, 250, .9);
                 }
             }
 
@@ -777,42 +777,42 @@
             }
 
             /* Card */
-            .deploy-card {
+            .deployment-section .deploy-card {
                 position: relative;
                 padding: 35px;
                 border-radius: 22px;
                 background: rgba(15, 23, 42, 0.75);
-                backdrop-filter: blur(18px);
+                backdrop-filter: blur(16px);
                 overflow: hidden;
-                transform-style: preserve-3d;
-                transition: transform 0.6s cubic-bezier(.25, .8, .25, 1);
+                transition: transform .6s ease, box-shadow .6s ease;
             }
 
-            .deploy-card:hover {
-                transform: translateY(-18px) rotateX(4deg);
+            .deployment-section .deploy-card:hover {
+                transform: translateY(-18px);
+                box-shadow: 0 30px 60px rgba(99, 102, 241, .45);
             }
 
-            /* Animated gradient border */
-            .deploy-card::before {
+            /* Animated border */
+            .deployment-section .deploy-card::before {
                 content: "";
                 position: absolute;
                 inset: 0;
                 border-radius: 22px;
-                padding: 1.5px;
+                padding: 2px;
                 background: linear-gradient(270deg, #60a5fa, #a78bfa, #22d3ee);
-                background-size: 600% 600%;
-                animation: borderMove 6s linear infinite;
+                background-size: 400% 400%;
+                animation: border 6s linear infinite;
                 mask:
                     linear-gradient(#fff 0 0) content-box,
                     linear-gradient(#fff 0 0);
                 -webkit-mask:
                     linear-gradient(#fff 0 0) content-box,
                     linear-gradient(#fff 0 0);
-                mask-composite: exclude;
+                mask-composite: intersect;
                 -webkit-mask-composite: xor;
             }
 
-            @keyframes borderMove {
+            @keyframes border {
                 0% {
                     background-position: 0% 50%;
                 }
@@ -822,49 +822,21 @@
                 }
             }
 
-            /* Shine sweep */
-            .card-glow {
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(120deg,
-                        transparent 30%,
-                        rgba(255, 255, 255, 0.12),
-                        transparent 70%);
-                transform: translateX(-100%);
-            }
-
-            .deploy-card:hover .card-glow {
-                animation: shine 1.2s ease forwards;
-            }
-
-            @keyframes shine {
-                to {
-                    transform: translateX(100%);
-                }
-            }
-
-            /* Header */
-            .deploy-header {
-                display: flex;
-                align-items: center;
-                gap: 16px;
-                margin-bottom: 18px;
-            }
-
-            /* Floating Icon */
-            .icon-float {
-                width: 55px;
-                height: 55px;
-                border-radius: 50%;
+            /* Icon */
+            .deployment-section .deploy-icon {
+                width: 60px;
+                height: 60px;
                 background: linear-gradient(135deg, #60a5fa, #a78bfa);
+                border-radius: 50%;
                 display: grid;
                 place-items: center;
+                margin-bottom: 15px;
                 animation: float 3s ease-in-out infinite;
             }
 
-            .icon-float i {
-                color: #0f172a;
+            .deployment-section .deploy-icon i {
                 font-size: 1.6rem;
+                color: #020617;
             }
 
             @keyframes float {
@@ -875,69 +847,63 @@
                 }
 
                 50% {
-                    transform: translateY(-8px);
+                    transform: translateY(-10px);
                 }
             }
 
             /* Text */
-            .deploy-card h3 {
+            .deployment-section h3 {
                 font-size: 1.4rem;
                 color: #e0e7ff;
+                margin-bottom: 10px;
             }
 
-            .deploy-card p {
+            .deployment-section p {
                 color: #c7d2fe;
                 line-height: 1.7;
-                margin-bottom: 22px;
+                margin-bottom: 20px;
             }
 
-            /* Bullet animation */
-            .deploy-card li {
+            /* List animation */
+            .deployment-section li {
                 list-style: none;
-                margin-bottom: 10px;
+                margin-bottom: 8px;
                 opacity: 0;
                 transform: translateX(-10px);
             }
 
-            .deploy-card:hover li {
-                animation: listSlide 0.4s ease forwards;
+            .deployment-section .deploy-card:hover li {
+                animation: slide .4s ease forwards;
             }
 
-            .deploy-card:hover li:nth-child(1) {
-                animation-delay: 0.1s;
+            .deployment-section .deploy-card:hover li:nth-child(1) {
+                animation-delay: .1s
             }
 
-            .deploy-card:hover li:nth-child(2) {
-                animation-delay: 0.2s;
+            .deployment-section .deploy-card:hover li:nth-child(2) {
+                animation-delay: .2s
             }
 
-            .deploy-card:hover li:nth-child(3) {
-                animation-delay: 0.3s;
+            .deployment-section .deploy-card:hover li:nth-child(3) {
+                animation-delay: .3s
             }
 
-            .deploy-card:hover li:nth-child(4) {
-                animation-delay: 0.4s;
+            .deployment-section .deploy-card:hover li:nth-child(4) {
+                animation-delay: .4s
             }
 
-            .deploy-card:hover li:nth-child(5) {
-                animation-delay: 0.5s;
+            .deployment-section .deploy-card:hover li:nth-child(5) {
+                animation-delay: .5s
             }
 
-            .deploy-card:hover li:nth-child(6) {
-                animation-delay: 0.6s;
+            .deployment-section .deploy-card:hover li:nth-child(6) {
+                animation-delay: .6s
             }
 
-            @keyframes listSlide {
+            @keyframes slide {
                 to {
                     opacity: 1;
                     transform: translateX(0);
-                }
-            }
-
-            /* Mobile */
-            @media (max-width: 768px) {
-                .section-title {
-                    font-size: 2.1rem;
                 }
             }
 
@@ -1154,22 +1120,20 @@
 
             <!-- Deployement-->
             <div class="section deployment-section">
-                <div class="section-title glow">
+
+                <h2 class="deployment-title">
                     <i class="fa-solid fa-cloud-arrow-up"></i>
                     Production Deployment Experience
-                </div>
+                </h2>
 
                 <div class="deployment-grid">
 
                     <div class="deploy-card">
-                        <span class="card-glow"></span>
-
-                        <div class="deploy-header">
-                            <div class="icon-float">
-                                <i class="fa-brands fa-aws"></i>
-                            </div>
-                            <h3>AWS Lightsail Multi-Project Deployment</h3>
+                        <div class="deploy-icon">
+                            <i class="fa-brands fa-aws"></i>
                         </div>
+
+                        <h3>AWS Lightsail Multi-Project Deployment</h3>
 
                         <p>
                             Successfully deployed three full-stack Node.js applications on a single AWS Lightsail
@@ -1177,24 +1141,21 @@
                         </p>
 
                         <ul>
-                            <li> Nginx Reverse Proxy for multi-app routing</li>
-                            <li> GitHub Actions CI/CD pipeline</li>
-                            <li> MySQL production databases</li>
-                            <li> DNS A-Records via Hostinger</li>
-                            <li> HTTPS with Certbot SSL</li>
-                            <li> Node.js process management using PM2</li>
+                            <li>Nginx Reverse Proxy for multi-app routing</li>
+                            <li>GitHub Actions CI/CD pipeline</li>
+                            <li>MySQL production databases</li>
+                            <li>DNS A-Records via Hostinger</li>
+                            <li>HTTPS with Certbot SSL</li>
+                            <li>PM2 process management</li>
                         </ul>
                     </div>
 
                     <div class="deploy-card">
-                        <span class="card-glow"></span>
-
-                        <div class="deploy-header">
-                            <div class="icon-float">
-                                <i class="fa-solid fa-server"></i>
-                            </div>
-                            <h3>Production Server Management</h3>
+                        <div class="deploy-icon">
+                            <i class="fa-solid fa-server"></i>
                         </div>
+
+                        <h3>Production Server Management</h3>
 
                         <p>
                             Managed environment variables, file uploads, firewall rules, and port routing for scalable
@@ -1202,18 +1163,17 @@
                         </p>
 
                         <ul>
-                            <li> Environment configuration via .env</li>
-                            <li> Port mapping using Nginx</li>
-                            <li> Public asset routing</li>
-                            <li> Linux server maintenance</li>
-                            <li> Secure SSH-based deployments</li>
-                            <li> Automatic restart via PM2</li>
+                            <li>Environment variables via .env</li>
+                            <li>Nginx port routing</li>
+                            <li>Static asset handling</li>
+                            <li>Linux server maintenance</li>
+                            <li>Secure SSH deployments</li>
+                            <li>PM2 auto-restart</li>
                         </ul>
                     </div>
 
                 </div>
             </div>
-
 
 
 
