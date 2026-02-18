@@ -610,136 +610,7 @@
             color: #93c5fd;
         }
 
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 40px;
-            color: #94a3b8;
-            font-size: 14px;
-        }
-
-        .footer-quote {
-            font-style: italic;
-            color: #60a5fa;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-
-        /* Certification Images */
-        .cert-image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
-
-        .cert-img {
-            width: 100%;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            border: 1px solid rgba(59, 130, 246, 0.3);
-        }
-
-        .cert-img:hover {
-            transform: scale(1.08);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.35);
-        }
-
-        /* Modal */
-        .cert-modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 999;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .cert-modal-img {
-            max-width: 90%;
-            max-height: 85%;
-            border-radius: 12px;
-        }
-
-        .cert-modal .close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 40px;
-            color: white;
-            cursor: pointer;
-        }
-
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .header-text {
-                text-align: center;
-            }
-
-            .header-text h1 {
-                font-size: 36px;
-            }
-
-            .profile-photo img {
-                width: 150px;
-                height: 150px;
-            }
-
-            .contact-links {
-                justify-content: center;
-            }
-
-            .main-content {
-                padding: 20px;
-            }
-
-            .section {
-                padding: 25px;
-            }
-
-            .experience-header {
-                flex-direction: column;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                min-height: 520px;
-                padding: 70px 20px;
-            }
-
-            @media (max-width: 768px) {
-                .header-content {
-                    flex-direction: column;
-                    text-align: center;
-                    gap: 20px;
-                    padding: 25px 20px;
-                }
-            }
-
-            /* Section */
+          /* Section */
             .deployment-section {
                 padding: 100px 40px;
                 max-width: 1200px;
@@ -904,6 +775,137 @@
                 to {
                     opacity: 1;
                     transform: translateX(0);
+                }
+            }
+
+
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .footer-quote {
+            font-style: italic;
+            color: #60a5fa;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        /* Certification Images */
+        .cert-image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-img {
+            width: 100%;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .cert-img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.35);
+        }
+
+        /* Modal */
+        .cert-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cert-modal-img {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 12px;
+        }
+
+        .cert-modal .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+        }
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-text {
+                text-align: center;
+            }
+
+            .header-text h1 {
+                font-size: 36px;
+            }
+
+            .profile-photo img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .contact-links {
+                justify-content: center;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                min-height: 520px;
+                padding: 70px 20px;
+            }
+
+            @media (max-width: 768px) {
+                .header-content {
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 20px;
+                    padding: 25px 20px;
                 }
             }
 
