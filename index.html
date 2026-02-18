@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>Syed Adeel Raza - Backend Developer</title>
     <style>
         * {
@@ -739,55 +740,101 @@
             }
 
             .deployment-section {
-                padding: 70px 40px;
-                max-width: 1100px;
-                margin: 0 auto;
+                padding: 90px 40px;
+                max-width: 1200px;
+                margin: auto;
             }
 
-            .deployment-section .section-title {
+            .section-title {
                 text-align: center;
-                font-size: 2rem;
-                margin-bottom: 40px;
-                color: #60a5fa;
+                font-size: 2.4rem;
+                font-weight: 700;
+                margin-bottom: 60px;
+                background: linear-gradient(90deg, #60a5fa, #a78bfa);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .section-title i {
+                margin-right: 12px;
             }
 
             .deployment-grid {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 25px;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 35px;
             }
 
             .deploy-card {
-                background: rgba(30, 41, 59, 0.7);
-                border-radius: 16px;
-                padding: 25px;
-                backdrop-filter: blur(8px);
-                transition: 0.3s ease;
-                border: 1px solid rgba(99, 102, 241, 0.2);
+                background: rgba(15, 23, 42, 0.75);
+                border-radius: 20px;
+                padding: 32px;
+                backdrop-filter: blur(14px);
+                border: 1px solid rgba(99, 102, 241, 0.25);
+                transition: all 0.35s ease;
+                position: relative;
             }
 
             .deploy-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+                transform: translateY(-10px);
+                box-shadow: 0 25px 45px rgba(99, 102, 241, 0.35);
+            }
+
+            /* Header */
+            .deploy-header {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                margin-bottom: 15px;
+            }
+
+            .deploy-icon {
+                font-size: 2rem;
+                color: #60a5fa;
             }
 
             .deploy-card h3 {
-                margin-bottom: 10px;
-                color: #c7d2fe;
+                font-size: 1.35rem;
+                color: #e0e7ff;
             }
 
+            /* Text */
+            .deploy-card p {
+                color: #cbd5f5;
+                font-size: 0.95rem;
+                line-height: 1.6;
+                margin-bottom: 20px;
+            }
+
+            /* List */
             .deploy-card ul {
-                padding-left: 18px;
+                list-style: none;
+                padding: 0;
             }
 
             .deploy-card li {
-                margin-bottom: 6px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 10px;
                 font-size: 0.95rem;
+                color: #e5e7eb;
             }
 
+            .deploy-card li i {
+                color: #60a5fa;
+                min-width: 18px;
+            }
+
+            /* Mobile */
             @media (max-width: 768px) {
                 .deployment-section {
-                    padding: 50px 20px;
+                    padding: 60px 20px;
+                }
+
+                .section-title {
+                    font-size: 2rem;
                 }
             }
 
@@ -1005,46 +1052,58 @@
 
             <!-- Deployement-->
             <div class="section deployment-section">
-                <div class="section-title">Production Deployment Experience</div>
+                <div class="section-title">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    Production Deployment Experience
+                </div>
 
                 <div class="deployment-grid">
 
                     <div class="deploy-card">
-                        <h3>AWS Lightsail Multi-Project Deployment</h3>
+                        <div class="deploy-header">
+                            <i class="fa-brands fa-aws deploy-icon"></i>
+                            <h3>AWS Lightsail Multi-Project Deployment</h3>
+                        </div>
+
                         <p>
                             Successfully deployed three full-stack Node.js applications on a single AWS Lightsail
                             instance with custom domains, SSL certificates, and automated CI/CD pipelines.
                         </p>
 
                         <ul>
-                            <li>Configured Nginx Reverse Proxy for multi-app routing</li>
-                            <li>Implemented GitHub Actions CI/CD pipeline</li>
-                            <li>Managed MySQL databases on production</li>
-                            <li>Configured DNS A-Records via Hostinger</li>
-                            <li>Enabled HTTPS using Certbot SSL</li>
-                            <li>Managed Node.js processes with PM2</li>
+                            <li><i class="fa-solid fa-network-wired"></i> Nginx Reverse Proxy for multi-app routing</li>
+                            <li><i class="fa-brands fa-github"></i> GitHub Actions CI/CD pipeline</li>
+                            <li><i class="fa-solid fa-database"></i> MySQL production databases</li>
+                            <li><i class="fa-solid fa-globe"></i> DNS A-Records via Hostinger</li>
+                            <li><i class="fa-solid fa-lock"></i> HTTPS with Certbot SSL</li>
+                            <li><i class="fa-solid fa-gears"></i> Node.js process management using PM2</li>
                         </ul>
                     </div>
 
                     <div class="deploy-card">
-                        <h3>Production Server Management</h3>
+                        <div class="deploy-header">
+                            <i class="fa-solid fa-server deploy-icon"></i>
+                            <h3>Production Server Management</h3>
+                        </div>
+
                         <p>
                             Managed environment variables, file uploads, firewall rules, and port routing for scalable
                             backend deployments.
                         </p>
 
                         <ul>
-                            <li>Environment configuration via .env</li>
-                            <li>Port mapping using Nginx</li>
-                            <li>Public asset routing</li>
-                            <li>Linux server maintenance</li>
-                            <li>Secure SSH-based deployments</li>
-                            <li>Automatic restart via PM2</li>
+                            <li><i class="fa-solid fa-file-code"></i> Environment configuration via .env</li>
+                            <li><i class="fa-solid fa-random"></i> Port mapping using Nginx</li>
+                            <li><i class="fa-solid fa-folder-open"></i> Public asset routing</li>
+                            <li><i class="fa-brands fa-linux"></i> Linux server maintenance</li>
+                            <li><i class="fa-solid fa-shield-halved"></i> Secure SSH-based deployments</li>
+                            <li><i class="fa-solid fa-rotate"></i> Automatic restart via PM2</li>
                         </ul>
                     </div>
 
                 </div>
             </div>
+
 
 
 
