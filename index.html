@@ -610,168 +610,170 @@
             color: #93c5fd;
         }
 
-          /* Section */
-            .deployment-section {
-                padding: 80px 40px;
-                max-width: 1200px;
-                margin-bottom: 20px;
+        /* Section */
+        .deployment-section {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin-bottom: 20px;
+        }
+
+        /* Title */
+        .deployment-title {
+            text-align: left;
+            font-size: 1.6rem;
+            margin-bottom: 70px;
+            color: #60a5fa;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(96, 165, 250, .3);
             }
 
-            /* Title */
-            .deployment-title {
-                text-align: left;
-                font-size: 1.6rem;
-                margin-bottom: 70px;
-                color: #60a5fa; 
+            to {
+                text-shadow: 0 0 30px rgba(167, 139, 250, .9);
+            }
+        }
+
+        /* Grid */
+        .deployment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        /* Card */
+        .deployment-section .deploy-card {
+            position: relative;
+            padding: 35px;
+            border-radius: 22px;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            overflow: hidden;
+            transition: transform .6s ease, box-shadow .6s ease;
+        }
+
+        .deployment-section .deploy-card:hover {
+            transform: translateY(-18px);
+            box-shadow: 0 30px 60px rgba(99, 102, 241, .45);
+        }
+
+        /* Animated border */
+        .deployment-section .deploy-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 22px;
+            padding: 2px;
+            background: linear-gradient(270deg, #60a5fa, #a78bfa, #22d3ee);
+            background-size: 400% 400%;
+            animation: border 6s linear infinite;
+            mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            mask-composite: intersect;
+            -webkit-mask-composite: xor;
+        }
+
+        @keyframes border {
+            0% {
+                background-position: 0% 50%;
             }
 
-            @keyframes glow {
-                from {
-                    text-shadow: 0 0 10px rgba(96, 165, 250, .3);
-                }
+            100% {
+                background-position: 300% 50%;
+            }
+        }
 
-                to {
-                    text-shadow: 0 0 30px rgba(167, 139, 250, .9);
-                }
+        /* Icon */
+        .deployment-section .deploy-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .deployment-section .deploy-icon i {
+            font-size: 1.6rem;
+            color: #020617;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
             }
 
-            /* Grid */
-            .deployment-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-                gap: 40px;
+            50% {
+                transform: translateY(-10px);
             }
+        }
 
-            /* Card */
-            .deployment-section .deploy-card {
-                position: relative;
-                padding: 35px;
-                border-radius: 22px;
-                background: rgba(15, 23, 42, 0.75);
-                backdrop-filter: blur(16px);
-                overflow: hidden;
-                transition: transform .6s ease, box-shadow .6s ease;
+        /* Text */
+        .deployment-section h3 {
+            font-size: 1.4rem;
+            color: #60a5fa;
+            margin-bottom: 10px;
+        }
+
+        .deployment-section p {
+            color: #c7d2fe;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+
+        /* List animation */
+        .deployment-section li {
+            list-style: none;
+            margin-bottom: 8px;
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+
+        /* Trigger on scroll */
+        .deployment-section .deploy-card.show li {
+            animation: slide .4s ease forwards;
+        }
+
+        .deployment-section .deploy-card.show li:nth-child(1) {
+            animation-delay: .1s;
+        }
+
+        .deployment-section .deploy-card.show li:nth-child(2) {
+            animation-delay: .2s;
+        }
+
+        .deployment-section .deploy-card.show li:nth-child(3) {
+            animation-delay: .3s;
+        }
+
+        .deployment-section .deploy-card.show li:nth-child(4) {
+            animation-delay: .4s;
+        }
+
+        .deployment-section .deploy-card.show li:nth-child(5) {
+            animation-delay: .5s;
+        }
+
+        .deployment-section .deploy-card.show li:nth-child(6) {
+            animation-delay: .6s;
+        }
+
+        @keyframes slide {
+            to {
+                opacity: 1;
+                transform: translateX(0);
             }
-
-            .deployment-section .deploy-card:hover {
-                transform: translateY(-18px);
-                box-shadow: 0 30px 60px rgba(99, 102, 241, .45);
-            }
-
-            /* Animated border */
-            .deployment-section .deploy-card::before {
-                content: "";
-                position: absolute;
-                inset: 0;
-                border-radius: 22px;
-                padding: 2px;
-                background: linear-gradient(270deg, #60a5fa, #a78bfa, #22d3ee);
-                background-size: 400% 400%;
-                animation: border 6s linear infinite;
-                mask:
-                    linear-gradient(#fff 0 0) content-box,
-                    linear-gradient(#fff 0 0);
-                -webkit-mask:
-                    linear-gradient(#fff 0 0) content-box,
-                    linear-gradient(#fff 0 0);
-                mask-composite: intersect;
-                -webkit-mask-composite: xor;
-            }
-
-            @keyframes border {
-                0% {
-                    background-position: 0% 50%;
-                }
-
-                100% {
-                    background-position: 300% 50%;
-                }
-            }
-
-            /* Icon */
-            .deployment-section .deploy-icon {
-                width: 60px;
-                height: 60px;
-                background: linear-gradient(135deg, #60a5fa, #a78bfa);
-                border-radius: 50%;
-                display: grid;
-                place-items: center;
-                margin-bottom: 15px;
-                animation: float 3s ease-in-out infinite;
-            }
-
-            .deployment-section .deploy-icon i {
-                font-size: 1.6rem;
-                color: #020617;
-            }
-
-            @keyframes float {
-
-                0%,
-                100% {
-                    transform: translateY(0);
-                }
-
-                50% {
-                    transform: translateY(-10px);
-                }
-            }
-
-            /* Text */
-            .deployment-section h3 {
-                font-size: 1.4rem;
-                color: #60a5fa;
-                margin-bottom: 10px;
-            }
-
-            .deployment-section p {
-                color: #c7d2fe;
-                line-height: 1.7;
-                margin-bottom: 20px;
-            }
-
-            /* List animation */
-            .deployment-section li {
-                list-style: none;
-                margin-bottom: 8px;
-                opacity: 0;
-                transform: translateX(-10px);
-            }
-
-            .deployment-section .deploy-card:hover li {
-                animation: slide .4s ease forwards;
-            }
-
-            .deployment-section .deploy-card:hover li:nth-child(1) {
-                animation-delay: .1s
-            }
-
-            .deployment-section .deploy-card:hover li:nth-child(2) {
-                animation-delay: .2s
-            }
-
-            .deployment-section .deploy-card:hover li:nth-child(3) {
-                animation-delay: .3s
-            }
-
-            .deployment-section .deploy-card:hover li:nth-child(4) {
-                animation-delay: .4s
-            }
-
-            .deployment-section .deploy-card:hover li:nth-child(5) {
-                animation-delay: .5s
-            }
-
-            .deployment-section .deploy-card:hover li:nth-child(6) {
-                animation-delay: .6s
-            }
-
-            @keyframes slide {
-                to {
-                    opacity: 1;
-                    transform: translateX(0);
-                }
-            }
+        }
 
 
 
@@ -922,7 +924,8 @@
                 </div>
                 <div class="header-text">
                     <h1>Syed Adeel Raza</h1>
-                    <div class="title">Backend & DevOps Engineer | Node.js • Python (FastAPI) • Laravel | AWS • Docker • CI/CD • SSL • Nginx • DNS Management 
+                    <div class="title">Backend & DevOps Engineer | Node.js • Python (FastAPI) • Laravel | AWS • Docker •
+                        CI/CD • SSL • Nginx • DNS Management
                     </div>
                     <div class="contact-links">
                         <a href="https://www.linkedin.com/in/syed-adeel-raza" target="_blank">🔗 LinkedIn</a>
@@ -947,9 +950,14 @@
                             <div class="project-status">📱 Live on Play Store</div>
                             <h3>Ayesha Amir Memorial Hospital</h3>
                         </div>
-                        <p class="project-desc">Complete backend development and database management for a hospital
-                            management mobile application. Handled server deployment, configuration, bug fixes, and
-                            ongoing maintenance.</p>
+                        <p class="project-desc">
+                            Developed a complete healthcare management backend system aimed at streamlining hospital
+                            operations and improving patient service accessibility. Built scalable RESTful APIs using
+                            PHP Laravel, managed MySQL database architecture, handled server deployment/configuration,
+                            and implemented ongoing maintenance and bug fixing workflows using Git & GitHub.
+                            Successfully deployed and maintained the application on production servers, ensuring stable
+                            performance, secure data handling, and smooth user experience for live Play Store users.
+                        </p>
                         <div class="project-tech">
                             <span class="tech-badge">Php Laravel</span>
                             <span class="tech-badge">MySQL</span>
@@ -973,9 +981,13 @@
                             <div class="project-status">📱 Live on Play Store</div>
                             <h3>Pigeon Gate</h3>
                         </div>
-                        <p class="project-desc">Developed robust backend infrastructure and managed databases for a
-                            specialized mobile application. Responsible for API development, server deployment, testing,
-                            and production maintenance.</p>
+                        <p class="project-desc">
+                            Built a specialized mobile application backend focused on delivering secure and efficient
+                            user management and communication services. Developed robust REST APIs with PHP Laravel,
+                            designed and managed PostgreSQL databases, handled server deployment, testing, and version
+                            control using Git & GitHub. Successfully launched and maintained the production-ready
+                            application on the Play Store with reliable backend performance and scalable infrastructure.
+                        </p>
                         <div class="project-tech">
                             <span class="tech-badge">PHP Laravel</span>
                             <span class="tech-badge">PostgreSQL</span>
@@ -996,9 +1008,14 @@
                             <div class="project-status">📱 Live on Play Store</div>
                             <h3>Ujaala Blood Circle</h3>
                         </div>
-                        <p class="project-desc">Built complete backend system for a blood donation mobile application.
-                            Managed database architecture, API endpoints, server configuration, and ensured smooth
-                            deployment and ongoing support.</p>
+                        <p class="project-desc">
+                            Developed a scalable blood donation platform designed to connect donors and recipients
+                            efficiently in emergency situations. Built complete backend architecture using Node.js,
+                            Express, and MongoDB, designed API endpoints, and managed server-side logic for real-time
+                            data handling and secure user management. Successfully deployed and maintained the
+                            application with optimized API performance and smooth operational support for active mobile
+                            users.
+                        </p>
                         <div class="project-tech">
                             <span class="tech-badge">Node.js</span>
                             <span class="tech-badge">MongoDB</span>
@@ -1019,10 +1036,12 @@
                             <h3>CPG Tele Health</h3>
                         </div>
                         <p class="project-desc">
-                            A real-time telehealth platform enabling seamless patient–doctor communication including chat, image sharing,
-                            audio messaging, and video messaging.
-                            Integrated WebSocket-based real-time communication along with high-quality live audio and video calling using
-                            Agora.
+                            Developed a real-time telehealth platform aimed at enabling seamless communication between
+                            patients and doctors through chat, image sharing, audio messaging, and video consultations.
+                            Built scalable backend services using Node.js, Express, WebSockets, and Agora for live
+                            audio/video calling while managing AWS deployment and CI/CD pipelines. Successfully
+                            delivered a stable production-ready healthcare solution deployed for USA-based users with
+                            reliable real-time communication performance.
                         </p>
                         <div class="project-tech">
                             <span class="tech-badge">Node.js</span>
@@ -1034,8 +1053,8 @@
                             <span class="tech-badge">CI/CD</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.clovis.telehealth" target="_blank"
-                                class="project-link">
+                            <a href="https://play.google.com/store/apps/details?id=com.clovis.telehealth"
+                                target="_blank" class="project-link">
                                 <span>🔗 View on Play Store(USA)</span>
                             </a>
                         </div>
@@ -1047,8 +1066,12 @@
                             <h3>Ask CPG</h3>
                         </div>
                         <p class="project-desc">
-                            A real-time telehealth platform enabling patient–doctor chat,images sharing, audio messaging, and video messaging.
-                            Implemented WebSocket-based real time communication between patients and doctors.
+                            Built a real-time communication platform focused on secure patient–doctor
+                            interaction through messaging and media sharing features. Developed scalable backend APIs
+                            using Node.js, Express, and WebSockets while managing AWS deployment, CI/CD pipelines, and
+                            production infrastructure using Git & GitHub. Successfully deployed the application on both
+                            Play Store and App Store for USA users with stable real-time communication and optimized
+                            backend reliability.
                         </p>
                         <div class="project-tech">
                             <span class="tech-badge">Node.js</span>
@@ -1058,12 +1081,12 @@
                             <span class="tech-badge">AWS Deployment</span>
                             <span class="tech-badge">CI/CD</span>
                         </div>
-                         <div class="project-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.cpg.chatapp"
-                                target="_blank" class="project-link">
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.cpg.chatapp" target="_blank"
+                                class="project-link">
                                 <span>🔗 View on Play Store(USA)</span>
                             </a>
-                             <a href="https://apps.apple.com/app/ask-cpg/id6761723051" target="_blank"
+                            <a href="https://apps.apple.com/app/ask-cpg/id6761723051" target="_blank"
                                 class="project-link">
                                 <span>🔗 View on App Store(USA)</span>
                             </a>
@@ -1076,8 +1099,12 @@
                             <h3>Ujala Mart</h3>
                         </div>
                         <p class="project-desc">
-                            Complete backend system for a mart application including product management,
-                            orders, users, authentication,push notifiactions and server deployment.
+                            Developed a complete eCommerce mart backend system aimed at managing products, orders,
+                            users, authentication, and push notification services efficiently. Built scalable REST APIs
+                            using Node.js and Express with MySQL/MongoDB database integration while handling AWS
+                            deployment, CI/CD automation, and production maintenance. Successfully delivered a stable
+                            and scalable backend infrastructure supporting smooth order processing and real-time
+                            application operations.
                         </p>
                         <div class="project-tech">
                             <span class="tech-badge">Node.js</span>
@@ -1088,9 +1115,9 @@
                             <span class="tech-badge">AWS Deployment & CI/CD</span>
 
                         </div>
-                         <div class="project-links">
-                            <a href="https://play.google.com/store/apps/details?id=com.ujalamart.app"
-                                target="_blank" class="project-link">
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.ujalamart.app" target="_blank"
+                                class="project-link">
                                 <span>🔗 View on Play Store</span>
                             </a>
                         </div>
@@ -1099,12 +1126,17 @@
 
                     <div class="project-card">
                         <div class="project-header">
-                             <div class="project-status">📱 Live on Play Store</div>
+                            <div class="project-status">📱 Live on Play Store</div>
                             <h3>FCT(First Choice Tech)</h3>
                         </div>
-                        <p class="project-desc">Currently developing backend infrastructure for a recruitment management
-                            system. Building scalable APIs, database design, and server-side logic for job posting and
-                            candidate management features.</p>
+                        <p class="project-desc">
+                            Developed a scalable recruitment management platform designed to simplify job posting,
+                            candidate management, and real-time communication processes. Built RESTful APIs and
+                            real-time features using Node.js, Express, and WebSockets while implementing scalable
+                            backend architecture, AWS deployment workflows, and CI/CD integration for smooth production
+                            delivery. Successfully deployed the application on the Play Store with optimized
+                            performance, secure data handling, and reliable recruitment management operations.
+                        </p>
                         <div class="project-tech">
                             <span class="tech-badge">Node.js</span>
                             <span class="tech-badge">Express</span>
@@ -1112,24 +1144,29 @@
                             <span class="tech-badge">REST APIs</span>
                             <span class="tech-badge">AWS Deployment & CI/CD</span>
                         </div>
-                           <div class="project-links">
+                        <div class="project-links">
                             <a href="https://play.google.com/store/apps/details?id=com.firstchoicetech.recruitment"
                                 target="_blank" class="project-link">
                                 <span>🔗 View on Play Store</span>
                             </a>
                         </div>
-                        </div>
+                    </div>
 
                     <div class="project-card">
                         <div class="project-header">
                             <div class="project-status in-progress">🚧 In Development</div>
                             <h3>Restaurant Management App</h3>
                         </div>
-                        <p class="project-desc">Developing comprehensive backend solution for restaurant operations
-                            including order management, inventory tracking, and customer data. Focus on performance
-                            optimization and real-time updates.</p>
+                        <p class="project-desc">
+                            Currently developing a comprehensive restaurant management solution aimed at streamlining
+                            restaurant operations including order management, inventory tracking, and customer handling.
+                            Building optimized REST APIs using PHP Laravel with MySQL database architecture while
+                            focusing on real-time updates, backend performance optimization, and scalable server-side
+                            operations. The platform is being designed to support efficient restaurant workflows with
+                            reliable and responsive system performance.
+                        </p>
                         <div class="project-tech">
-                             <span class="tech-badge">PHP Laravel</span>
+                            <span class="tech-badge">PHP Laravel</span>
                             <span class="tech-badge">MySQL</span>
                             <span class="tech-badge">REST API</span>
                         </div>
@@ -1141,8 +1178,14 @@
                             <div class="project-status">🌐 Live Website</div>
                             <h3>Ayesha Amir Memorial Hospital Website</h3>
                         </div>
-                        <p class="project-desc">Designed and developed complete WordPress website for hospital services.
-                            Handled content management, custom theme development, and ongoing maintenance.</p>
+                        <p class="project-desc">
+                            Designed and developed a professional hospital website aimed at improving online
+                            accessibility for healthcare services and patient information management. Built and
+                            customized the platform using WordPress, PHP, and MySQL including custom theme development,
+                            content management, and ongoing maintenance. Successfully delivered a responsive and
+                            user-friendly live website that enhanced the hospital’s digital presence and service
+                            accessibility.
+                        </p>
                         <div class="project-tech">
                             <span class="tech-badge">WordPress</span>
                             <span class="tech-badge">PHP</span>
@@ -1158,7 +1201,7 @@
                 </div>
             </div>
 
-             <!-- Summary -->
+            <!-- Summary -->
             <div class="section">
                 <div class="section-title">Building Scalable Backend Systems</div>
                 <div class="summary">
@@ -1513,6 +1556,10 @@
         document.querySelectorAll(".section").forEach(section => {
             section.classList.add("reveal");
             observer.observe(section);
+        });
+
+        document.querySelectorAll(".deploy-card").forEach(card => {
+            observer.observe(card);
         });
 
         /* Certification Modal */
