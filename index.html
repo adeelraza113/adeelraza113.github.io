@@ -737,35 +737,38 @@
             margin-bottom: 8px;
             opacity: 0;
             transform: translateX(-10px);
+            transition: all .4s ease;
         }
 
-        /* Trigger on scroll */
-        .deployment-section .deploy-card.show li {
-            animation: slide .4s ease forwards;
+        /* Reveal on scroll */
+        .deployment-section .deploy-card.active li {
+            opacity: 1;
+            transform: translateX(0);
         }
 
-        .deployment-section .deploy-card.show li:nth-child(1) {
-            animation-delay: .1s;
+        /* Stagger delays */
+        .deployment-section .deploy-card.active li:nth-child(1) {
+            transition-delay: .1s;
         }
 
-        .deployment-section .deploy-card.show li:nth-child(2) {
-            animation-delay: .2s;
+        .deployment-section .deploy-card.active li:nth-child(2) {
+            transition-delay: .2s;
         }
 
-        .deployment-section .deploy-card.show li:nth-child(3) {
-            animation-delay: .3s;
+        .deployment-section .deploy-card.active li:nth-child(3) {
+            transition-delay: .3s;
         }
 
-        .deployment-section .deploy-card.show li:nth-child(4) {
-            animation-delay: .4s;
+        .deployment-section .deploy-card.active li:nth-child(4) {
+            transition-delay: .4s;
         }
 
-        .deployment-section .deploy-card.show li:nth-child(5) {
-            animation-delay: .5s;
+        .deployment-section .deploy-card.active li:nth-child(5) {
+            transition-delay: .5s;
         }
 
-        .deployment-section .deploy-card.show li:nth-child(6) {
-            animation-delay: .6s;
+        .deployment-section .deploy-card.active li:nth-child(6) {
+            transition-delay: .6s;
         }
 
         @keyframes slide {
