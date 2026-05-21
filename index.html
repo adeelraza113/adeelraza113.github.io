@@ -254,16 +254,23 @@
         }
 
         .reveal {
-            opacity: 0;
-            transform: translateY(40px);
+            opacity: 1;
+            transform: translateY(0);
             transition: all 0.8s ease;
         }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        /* Animation only for larger screens */
+        @media (min-width: 768px) {
+            .reveal {
+                opacity: 0;
+                transform: translateY(40px);
+            }
 
+            .reveal.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
         .section:hover {
             transform: translateY(-5px);
@@ -1359,13 +1366,13 @@
                         <div class="skill-tags">
                             <span class="skill-tag">RESTful APIs</span>
                             <span class="skill-tag">API Integration</span>
-                            <span class="skill-tag">Authentication & Authorization</span>
+                            <span class="skill-tag">Load Balancing</span>
                             <span class="skill-tag">Performance Optimization</span>
                             <span class="skill-tag">Scalability & Reliability</span>
                             <span class="skill-tag">Database Optimization</span>
                             <span class="skill-tag">Caching Strategies</span>
                             <span class="skill-tag">Cloud Infrastructure</span>
-                            <span class="skill-tag">Load Balancing</span>
+                            <span class="skill-tag">Authentication & Authorization</span>
                         </div>
                     </div>
 
